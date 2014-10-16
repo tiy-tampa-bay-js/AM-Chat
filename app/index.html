@@ -22,29 +22,38 @@
     <!-- endbuild -->
   </head>
   <body>
+    <main>
+        <!-- begin userarea -->
+        <aside class="user-sidebar">
+          <div id="userTemplate"></div>
+          <p>Stuff we can see</p>
+        </aside>
+        <!-- end userarea -->
 
-    <div class="hero-unit">
-      <h1>'Allo, 'Allo!</h1>
-      <p>You now have</p>
-      <ul>
-        <li>HTML5 Boilerplate</li>
-        <li>Normalize CSS</li>
+        <!-- begin chatarea -->
+        <article class="chat-area">
+            <div id="chats"></div>
 
-        <li>Sass</li>
+        </article>
+        <!-- end chatarea -->
 
-
-        <li>Modernizr</li>
-
-
-        <li>Bourbon & Neat</li>
-
-
-        <li>UnderscoreJS</li>
-
-      </ul>
-      <p>Don't forget to update your readme file!!</p>
-    </div>
-
+        <!-- begin message input -->
+        <div class="message-input">
+          <form action="POST">
+            <fieldset>
+              <input class="field" type="text" placeholder="I have something to say..." name="message"/>
+              <input class="field" type="submit" value="Create" class="button" />
+            </fieldset>
+          </form>
+        </div>
+        <!-- end message input -->
+    </main>
+    <script type="text/template" id="userTemplate">
+        <!-- <p>user-avatar</p> <p>message</p> <p>time</p> -->
+    </script>
+    <script type="text/template" id="chat">
+        <p><%= message %></p>
+    </script>
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="../bower_components/jquery/dist/jquery.js"></script>
