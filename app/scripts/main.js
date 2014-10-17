@@ -2,6 +2,8 @@ var template = _.template($('#chat').html()); // grab the template
 var apiUrl   = 'http://tiny-pizza-server.herokuapp.com/collections/AM-Chat';
 var messageObject = {}; // Create me an empty object
 //Our api url
+
+
 var button = document.getElementById('button');
 
 button.onclick = function() {
@@ -30,12 +32,16 @@ $('#formPop input[type=submit]').on('click', function (event) {
     //Whenever the user clicks the create button in the form
 
     event.preventDefault(); //Dont let the browser submit the form
+    var sentAt = new Date();
 
     var fieldValues = $('input.field').serializeArray();
 
     fieldValues.forEach(function (field) {
       messageObject[field.name] = field.value;
     });
+
+      messageObject['sentAt'] = sentAt;
+      console.log(messageObject);
     //Fill my form object with the name:value pair of each form field.
     $.ajax({
       method: 'POST',
@@ -77,3 +83,7 @@ setInterval(function () {
 }, 1000);
 //Everyone 1s run this anonymous function
 });
+
+
+var d = new Date("");
+document.getElementById("demo").innerHTML = d;
