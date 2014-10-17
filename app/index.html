@@ -25,8 +25,8 @@
     <div id="wrapper">
       <div id="formPop">
           <p>What's your name?</p>
-          <input type="text" />
-          <input type="submit" id='button' class="loginButton"/>
+          <input type="text" class="userName" name="user" />
+          <input type="submit" value="Create" id='button' class="loginButton"/>
       </div>
     </div>  <!-- end wrapper -->
     <main>
@@ -59,13 +59,13 @@
     <script type="text/template" id="userTemplate">
         <div class="userContainer">
 
-
         </div>
         <!-- <p>user-avatar</p> <p>message</p> <p>time</p> -->
     </script>
     <script type="text/template" id="chat">
         <div class="messageContainer">
         <img src="favicon.ico" alt="">
+        <p><%= user %></p>
         <p><%= message %></p>
         </div>
     </script>
