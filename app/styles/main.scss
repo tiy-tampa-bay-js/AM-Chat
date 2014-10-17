@@ -6,14 +6,59 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  z-index: 0;
 }
+//  Variables
+
+$popup-color: rgba(0, 0, 0, 0.8);
+$popup-button: rgba(0, 0, 0, 0.2);
 
 // Custom Styles
 body {
-  background: #fafafa;
+  background: #666;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
 }
+
+#wrapper {
+  background-color: $popup-color;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+#formPop {
+    color: #fff;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1.5em;
+    height: 100%;
+    padding-top: 20%;
+    text-align: center;
+    width: 100%;
+    input[type="text"] {
+      color: #333;
+    }
+    p {
+      font-size: 2em;
+    }
+}
+
+.loginButton {
+  background-color: $popup-button;
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
+  padding: 0.15em .25em;
+}
+/* ----- in case we use background img -----
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  --------- end background img maybe ------ */
 
 .user-sidebar {
   background-color: #333;
@@ -21,14 +66,33 @@ body {
   float: left;
   height: auto;
   width: 30%;
+  img {
+    height: auto;
+    width: 100%;
+  }
 }
 
 .chat-area {
   background-color: #666;
   display: inline-block;
   float: left;
-  height: 100px;
+  height: auto;
+  padding: 1em;
   width: 70%;
+}
+
+.messageContainer {
+  background-color:  rgba(255, 255, 255, 0.8);
+  border-radius: 6px;
+  margin: .5em;
+  img {
+    padding: .25em;
+  }
+  p{
+    display: inline-block;
+    padding: .5em;
+    vertical-align: top;
+  }
 }
 
 .message-input {

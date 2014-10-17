@@ -1,9 +1,20 @@
 var template = _.template($('#chat').html()); // grab the template
 var apiUrl   = 'http://tiny-pizza-server.herokuapp.com/collections/AM-Chat';
 //Our api url
+var button = document.getElementById('button');
+
+button.onclick = function() {
+    var div = document.getElementById('wrapper');
+    if (div.style.display !== 'none') {
+        div.style.display = 'none';
+    }
+    else {
+        div.style.display = 'block';
+    }
+};
 
 
-$('input[type=submit]').on('click', function (event) {
+$('.message-input input[type=submit]').on('click', function (event) {
   //Whenever the user clicks the create button in the form
 
   event.preventDefault(); //Dont let the browser submit the form

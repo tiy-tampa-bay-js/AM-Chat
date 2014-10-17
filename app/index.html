@@ -22,11 +22,19 @@
     <!-- endbuild -->
   </head>
   <body>
+    <div id="wrapper">
+      <div id="formPop">
+          <p>What's your name?</p>
+          <input type="text" />
+          <input type="submit" id='button' class="loginButton"/>
+      </div>
+    </div>  <!-- end wrapper -->
     <main>
         <!-- begin userarea -->
         <aside class="user-sidebar">
-          <div id="userTemplate"></div>
+          <img src="https://s3.amazonaws.com/uploads.hipchat.com/31349/1240315/EoPjRz5NsTj6G3U/upload.png" alt="">
           <p>Stuff we can see</p>
+          <div id="userTemplate"></div>
         </aside>
         <!-- end userarea -->
 
@@ -42,17 +50,24 @@
           <form action="POST">
             <fieldset>
               <input class="field" type="text" placeholder="I have something to say..." name="message"/>
-              <input class="field" type="submit" value="Create" class="button" />
+              <input type="submit" value="Create" class="button" />
             </fieldset>
           </form>
         </div>
         <!-- end message input -->
     </main>
     <script type="text/template" id="userTemplate">
+        <div class="userContainer">
+
+
+        </div>
         <!-- <p>user-avatar</p> <p>message</p> <p>time</p> -->
     </script>
     <script type="text/template" id="chat">
+        <div class="messageContainer">
+        <img src="favicon.ico" alt="">
         <p><%= message %></p>
+        </div>
     </script>
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
