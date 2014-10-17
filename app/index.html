@@ -60,13 +60,13 @@
         <div class="userContainer">
 
         </div>
-        <!-- <p>user-avatar</p> <p>message</p> <p>time</p> -->
     </script>
     <script type="text/template" id="chat">
         <div class="messageContainer">
-        <img src="favicon.ico" alt="">
+        <img src="favicon.ico" alt="mustache man">
         <p><%= user %></p>
         <p><%= message %></p>
+        <p><%= moment('sentAt').fromNow() %></p>
         </div>
     </script>
     <!-- build:js scripts/vendor.js -->

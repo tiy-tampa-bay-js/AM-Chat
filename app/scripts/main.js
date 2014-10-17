@@ -33,14 +33,14 @@ $('#formPop input[type=submit]').on('click', function (event) {
 
     event.preventDefault(); //Dont let the browser submit the form
     var sentAt = new Date();
+    messageObject['sentAt'] = sentAt;
 
     var fieldValues = $('input.field').serializeArray();
-
     fieldValues.forEach(function (field) {
       messageObject[field.name] = field.value;
     });
 
-      messageObject['sentAt'] = sentAt;
+
       console.log(messageObject);
     //Fill my form object with the name:value pair of each form field.
     $.ajax({
@@ -83,7 +83,3 @@ setInterval(function () {
 }, 1000);
 //Everyone 1s run this anonymous function
 });
-
-
-var d = new Date("");
-document.getElementById("demo").innerHTML = d;
