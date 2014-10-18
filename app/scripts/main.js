@@ -1,6 +1,5 @@
 var template = _.template($('#chat').html()); // grab the template
-var sideTemplate = _.template($('#person').html()); // grab the template
-
+var sideTemplate = _.template($('#person').html());
 var apiUrl   = 'http://tiny-pizza-server.herokuapp.com/collections/AM-Chat';
 var messageObject = {}; // Create me an empty object
 //Our api url
@@ -52,7 +51,7 @@ $('#formPop input[type=submit]').on('click', function (event) {
       //Send a POST request to our API to save the data from the form.
     }).done(function (data) { $('input.field').val('') });
     //Clear all the data in the form after its done.
-  });
+  }); // Closes line 21
 
 
 var previousCount = 0;
@@ -78,25 +77,37 @@ setInterval(function () {
           return template(chat);
 
         });
-
         $('#chats').html(finishedTemplates);
+
       }
    }) // ajax call end
-}, 1000); // end of set interval
 
-// setInterval(function () {
-//   $.ajax({url: apiUrl}).done(function (allThePersons) {
-//      if(allThePersons.length > previousCountAgain)  {
-//        console.log(allThePersons);
+   $.ajax({url: apiUrl}).done(function (allThePersons) {
+   // Do a GET request on our API to return all previously saved TODOs
+
+         var finishedSideTemplates = _.map(allThePersons, function (person) {
+           return sideTemplate(person);
+         });
+         $('#persons').html(finishedSideTemplates);
+
+  });
+
+}, 1000); // end of set interval line 60
+
+//  setInterval(function () {
+//    $.ajax({url: apiUrl}).done(function (allThePersons) {
+//       if(allThePersons.length > previousCountAgain)  {
+//         console.log(allThePersons);
 //
-//        previousCountAgain = allThePersons.length;
+//         previousCountAgain = allThePersons.length;
 //
-//       var sideTemplateFinished = _.map(allThePersons, function (person) {
-//         return sideTemplate(person);
-//       });
+//        var sideTemplateFinished = _.map(allThePersons, function (person) {
+//          return sideTemplate(chat.user);
+//        });
 //
-//       $('#persons').html(sideTemplateFinished);
-//     //}
-//   })
-// }, 1000); // end of set interval
-}); //superend from line 21
+//        $('#persons').html(sideTemplateFinished);
+//      }
+//    })
+//  }, 1000);  end of set interval
+
+ }); //superend from line 21
