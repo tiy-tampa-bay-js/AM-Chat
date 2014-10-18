@@ -70,11 +70,12 @@ fieldset {
   color: white;
   display: inline-block;
   float: left;
-  height: 500px;
+  height: auto;
+  margin:0 auto;
   width: 30%;
   img {
     height: auto;
-    width: 100%;
+    width: 60%;
   }
 }
 
@@ -102,15 +103,14 @@ fieldset {
 }
 
 .userContainer {
-  background-color:  rgba(255, 255, 255, 0.8);
   border-radius: 6px;
-  height: 400px;
+  height: auto;
   margin: .5em;
-  width: auto;
+  width: 80%;
   img {
     height: auto;
     padding: .25em;
-    width: 50%;
+    width: 10%;
   }
   p{
     display: inline-block;

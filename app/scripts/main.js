@@ -75,39 +75,25 @@ setInterval(function () {
             chat.sentAt = " "
           }
           return template(chat);
+        }); // closes map function
 
-        });
         $('#chats').html(finishedTemplates);
 
-      }
-   }) // ajax call end
+      }// closes if all the chats.length statement
+   }) // ajax call end for allthechats
 
    $.ajax({url: apiUrl}).done(function (allThePersons) {
-   // Do a GET request on our API to return all previously saved TODOs
 
          var finishedSideTemplates = _.map(allThePersons, function (person) {
+           if (_.isUndefined(person.user)){
+             person.user = " "
+           }
            return sideTemplate(person);
          });
          $('#persons').html(finishedSideTemplates);
 
-  });
+  });//closes ajax for allthepersons
 
 }, 1000); // end of set interval line 60
-
-//  setInterval(function () {
-//    $.ajax({url: apiUrl}).done(function (allThePersons) {
-//       if(allThePersons.length > previousCountAgain)  {
-//         console.log(allThePersons);
-//
-//         previousCountAgain = allThePersons.length;
-//
-//        var sideTemplateFinished = _.map(allThePersons, function (person) {
-//          return sideTemplate(chat.user);
-//        });
-//
-//        $('#persons').html(sideTemplateFinished);
-//      }
-//    })
-//  }, 1000);  end of set interval
 
  }); //superend from line 21
