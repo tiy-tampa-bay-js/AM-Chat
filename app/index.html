@@ -64,9 +64,9 @@
     <script type="text/template" id="chat">
         <div class="messageContainer">
         <img src="favicon.ico" alt="mustache man">
-        <p><%= user %></p>
+        <p class="name"><%= user %></p>
         <p><%= message %></p>
-        <p><%= moment(sentAt).fromNow() %></p>
+        <p class="time"><%= moment(sentAt).fromNow() %></p>
         </div>
     </script>
     <!-- build:js scripts/vendor.js -->
