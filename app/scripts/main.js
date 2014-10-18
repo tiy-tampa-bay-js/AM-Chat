@@ -90,6 +90,7 @@ setInterval(function () {
            }
            return sideTemplate(person);
          });
+
          $('#persons').html(finishedSideTemplates);
 
   });//closes ajax for allthepersons
