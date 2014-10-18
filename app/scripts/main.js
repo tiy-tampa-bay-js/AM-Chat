@@ -1,4 +1,6 @@
 var template = _.template($('#chat').html()); // grab the template
+var sideTemplate = _.template($('#person').html()); // grab the template
+
 var apiUrl   = 'http://tiny-pizza-server.herokuapp.com/collections/AM-Chat';
 var messageObject = {}; // Create me an empty object
 //Our api url
@@ -70,16 +72,31 @@ setInterval(function () {
           if (_.isUndefined(chat.user)){
             chat.user = " "
           }
+          if (_.isUndefined(chat.sentAt)){
+            chat.sentAt = " "
+          }
           return template(chat);
+
         });
 
         $('#chats').html(finishedTemplates);
-     }
+      }
+   }) // ajax call end
+}, 1000); // end of set interval
 
-     //Map over every todo we have and turn it into a template
-
-     //Replace the contents of our todos container with all of the template-ed todos
-   })
-}, 1000);
-//Everyone 1s run this anonymous function
-});
+// setInterval(function () {
+//   $.ajax({url: apiUrl}).done(function (allThePersons) {
+//      if(allThePersons.length > previousCountAgain)  {
+//        console.log(allThePersons);
+//
+//        previousCountAgain = allThePersons.length;
+//
+//       var sideTemplateFinished = _.map(allThePersons, function (person) {
+//         return sideTemplate(person);
+//       });
+//
+//       $('#persons').html(sideTemplateFinished);
+//     //}
+//   })
+// }, 1000); // end of set interval
+}); //superend from line 21

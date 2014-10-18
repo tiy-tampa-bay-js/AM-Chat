@@ -70,7 +70,7 @@ fieldset {
   color: white;
   display: inline-block;
   float: left;
-  height: auto;
+  height: 500px;
   width: 30%;
   img {
     height: auto;
@@ -100,6 +100,23 @@ fieldset {
     vertical-align: top;
   }
 }
+
+.userContainer {
+  background-color:  rgba(255, 255, 255, 0.8);
+  border-radius: 6px;
+  margin: .5em;
+  img {
+    height: auto;
+    padding: .25em;
+    width: 50%;
+  }
+  p{
+    display: inline-block;
+    padding: .5em;
+    vertical-align: top;
+  }
+}
+
 
 .message-input {
   background-color: red;

@@ -32,10 +32,8 @@
     <main>
         <!-- begin userarea -->
         <aside class="user-sidebar">
-          <img src="https://s3.amazonaws.com/uploads.hipchat.com/31349/1240315/EoPjRz5NsTj6G3U/upload.png" alt="">
           <p>Stuff we can see</p>
-          <p id="demo"></p>
-          <div id="userTemplate"></div>
+          <div id="persons"></div>
         </aside>
         <!-- end userarea -->
 
@@ -56,9 +54,10 @@
         </div>
         <!-- end message input -->
     </main>
-    <script type="text/template" id="userTemplate">
+    <script type="text/template" id="person">
         <div class="userContainer">
-
+        <img src="favicon.ico" alt="mustache man">
+        <p><%= user %></p>
         </div>
     </script>
     <script type="text/template" id="chat">
