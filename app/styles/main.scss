@@ -66,7 +66,7 @@ fieldset {
   --------- end background img maybe ------ */
 
 .user-sidebar {
-  background-color: #333;
+  background-color: #2DAAD7;
   color: white;
   display: inline-block;
   float: left;
@@ -76,6 +76,13 @@ fieldset {
   img {
     height: auto;
     width: 60%;
+  }
+  #logo {
+    margin: 0 18%;
+  }
+  .user-log {
+    font-size: 1.5em;
+    padding: 5% 14%;
   }
 }
 
@@ -127,7 +134,7 @@ fieldset {
 
 
 .message-input {
-  background-color: red;
+  background-color: #F59331;
   bottom: 0px;
   position: fixed;
   width: 100%;
@@ -175,7 +182,6 @@ fieldset {
   }
 
   .message-input {
-    background-color: red;
     padding: 1em;
     width: 100%;
   }

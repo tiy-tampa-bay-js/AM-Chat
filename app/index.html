@@ -32,8 +32,8 @@
     <main>
         <!-- begin userarea -->
         <aside class="user-sidebar">
-            <p>Chatters</p>
-            <img src="https://s3.amazonaws.com/uploads.hipchat.com/31349/1240315/JKGsxk2RxH3hvLJ/Screen%20Shot%202014-10-18%20at%203.08.32%20PM.png" alt="">
+            <img id="logo" src="https://s3.amazonaws.com/uploads.hipchat.com/31349/1240315/b94O3IOUxto5ios/amchat.png" alt="">
+            <p class="user-log">Latest Chatters</p>
             <div id="persons"></div>
         </aside>
         <!-- end userarea -->
@@ -46,10 +46,11 @@
 
         <!-- begin message input -->
         <div class="message-input">
+
           <form action="POST">
             <fieldset>
               <input class="field" type="text" placeholder="I have something to say..." name="message"/>
-              <input type="submit" value="Create" class="button" />
+              <input type="submit" value="send!" class="button" />
             </fieldset>
           </form>
         </div>
