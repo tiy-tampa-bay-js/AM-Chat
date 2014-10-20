@@ -5,9 +5,8 @@ var messageObject = {}; // Create me an empty object
 //Our api url
 
 
-var button = document.getElementById('button');
-
-button.onclick = function() {
+  var button = document.getElementById('button');
+  button.onclick = function() {
     var div = document.getElementById('wrapper');
     if (div.style.display !== 'none') {
         div.style.display = 'none';
@@ -15,43 +14,41 @@ button.onclick = function() {
     else {
         div.style.display = 'block';
     }
-};
+  };
 
   $('#formPop input[type=submit]').on('click', function (event) {
-    event.preventDefault(); //Dont let the browser submit the form
+  event.preventDefault(); //Dont let the browser submit the form
 
-    var loginValues =  $('input.userName').serializeArray();
+  var loginValues =  $('input.userName').serializeArray();
 
-    //Turn everything into an array of js objects and not DOM objects
+  //Turn everything into an array of js objects and not DOM objects
 
-    loginValues.forEach(function (userName) {
-      messageObject[userName.name] = userName.value;
-    });
-
-
-    $('.message-input input[type=submit]').on('click', function (event) {
-      //Whenever the user clicks the create button in the form
-
-      event.preventDefault(); //Dont let the browser submit the form
-      var sentAt = new Date();
-      messageObject['sentAt'] = sentAt;
-
-      var fieldValues = $('input.field').serializeArray();
-      fieldValues.forEach(function (field) {
-        messageObject[field.name] = field.value;
-      });
+  loginValues.forEach(function (userName) {
+  messageObject[userName.name] = userName.value;
+  });
 
 
-        console.log(messageObject);
-      //Fill my form object with the name:value pair of each form field.
-      $.ajax({
-        method: 'POST',
-        url: apiUrl,
-        data: messageObject
-        //Send a POST request to our API to save the data from the form.
-      }).done(function (data) { $('input.field').val('') });
-      //Clear all the data in the form after its done.
-      });
+  $('.message-input input[type=submit]').on('click', function (event) {
+  //Whenever the user clicks the create button in the form
+
+  event.preventDefault(); //Dont let the browser submit the form
+  var sentAt = new Date();
+  messageObject['sentAt'] = sentAt;
+
+  var fieldValues = $('input.field').serializeArray();
+
+  fieldValues.forEach(function (field) {
+    messageObject[field.name] = field.value;
+  });
+
+  $.ajax({
+    method: 'POST',
+    url: apiUrl,
+    data: messageObject
+    //Send a POST request to our API to save the data from the form.
+  }).done(function (data) { $('input.field').val('') });
+  //Clear all the data in the form after its done.
+  });
 
 
   var previousCount = 0;
@@ -84,17 +81,39 @@ button.onclick = function() {
   };// end of messageList
 
   var peopleList = function () {
-    $.ajax({url: apiUrl}).done(function (allThePersons) {
-
+/*  $.ajax({url: apiUrl}).done(function (allThePersons) {
         var finishedSideTemplates = _.map(allThePersons, function (person) {
           if (_.isUndefined(person.user)){
             person.user = " "
           }
           return sideTemplate(person);
         });
+
         $('#persons').html(finishedSideTemplates);
+
      });//closes ajax for allthepersons
    };// end function peopleList
+*/
+   //--------------- TRIAL ----------------
+   $.ajax( {url: apiUrl} ).done(function (allThePersons) {
+
+      var userCount = _.countBy(allThePersons, function (person) {
+        return person.user;
+      });
+      var userMessages = _.map(userCount, function (val, key) {
+
+        return { user: key, length: val };
+      });
+      var sortedNames = _.sortBy(userMessages, function (mes) {
+        return mes.length;
+      });
+
+      var compiledUserTemplateFinished = _.map(sortedNames.reverse(), sideTemplate);
+
+      $('#persons').html(compiledUserTemplateFinished);
+    });
+  };// people List
+   /*--------------- END TRIAL  ----------------*/
 
   setInterval(function () {
     peopleList();
