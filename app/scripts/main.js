@@ -82,21 +82,19 @@ setInterval(function () {
       }// closes if all the chats.length statement
    }) // ajax call end for allthechats
 
-   var userList = function () {
-     var finishedSideTemplates = _.map(allThePersons, function (person) {
-       if (_.isUndefined(person.user)){
-         person.user = " "
-       }
-       return sideTemplate(person);
-     });
-     $('#persons').html(finishedSideTemplates);
-   };//closes userList function
+   $.ajax({url: apiUrl}).done(function (allThePersons) {
 
-    $.ajax({url: apiUrl}).done(function (allThePersons) {
-       userList();
-    });//closes ajax for allthepersons
+         var finishedSideTemplates = _.map(allThePersons, function (person) {
+           if (_.isUndefined(person.user)){
+             person.user = " "
+           }
+           return sideTemplate(person);
+         });
 
-  userList();
+         $('#persons').html(finishedSideTemplates);
+
+  });//closes ajax for allthepersons
+
 }, 1000); // end of set interval line 60
 
  }); //superend from line 21
