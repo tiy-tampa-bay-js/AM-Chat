@@ -118,6 +118,6 @@ var messageObject = {}; // Create me an empty object
   setInterval(function () {
     peopleList();
     messageList();
-  }, 1000); // end of set interval line 60
+  }, 10000); // end of set interval line 60
 
  }); //superend from line 21

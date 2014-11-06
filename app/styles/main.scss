@@ -10,7 +10,7 @@
 }
 //  Variables
 
-$popup-color: rgba(88,78,112, 0.8);
+$popup-color: rgba(88,78,112, 1);
 $popup-button: rgba(0, 0, 0, 0.2);
 
 // Custom Styles
@@ -23,6 +23,7 @@ body {
 fieldset {
   border: 0px solid #c0c0c0;
   margin: 0;
+  padding: .75em;
 }
 
 #wrapper {
@@ -82,16 +83,15 @@ fieldset {
   }
   .user-log {
     font-size: 1.5em;
-    padding: 5% 14%;
+    padding:0 0 0 15%;
   }
 }
 
 .chat-area {
-  background-color: #666;
+  background-color: #2DAAD7;;
   display: inline-block;
   float: left;
   height: auto;
-  padding: 1em;
   width: 70%;
 }
 
@@ -132,6 +132,11 @@ fieldset {
   }
 }
 
+.userContainer {
+  img {
+    width: 15%;
+  }
+}
 
 .message-input {
   background-color: #F59331;
@@ -147,19 +152,24 @@ fieldset {
     display: inline-block;
   }
   input[type="text"] {
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.075);
+  display: inline-block;
+  font-family:sans-serif;
+  font-size: 14px;
+  min-height: 28px;
+  outline: none;
+  padding: 4px 20px 4px 8px;
   position: relative;
   width: 360px;
-  min-height: 28px;
-  padding: 4px 20px 4px 8px;
-  font-size: 14px;
-  font-family:sans-serif;
-  display: inline-block;
-  margin-top: 20px;
-  border-radius: 4px;
-  outline: none;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.075);
   }
-  .button {
+
+  input.field {
+    border: none;
+  }
+
+  input.button {
+    border-radius: 6px;
     padding: .25em;
   }
 }
